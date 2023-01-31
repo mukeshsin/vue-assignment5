@@ -1,18 +1,19 @@
 <template>
-<div class="jobs">
-    <h1> Jobs</h1>
-    <div v-for="job in jobs" :key="job.id">
-        <router-link :to="{name:JobDetails,params:{id:job.id}}">
+<div class="Jobs">
+    <h1 class="jobsHead"> Jobs</h1>
+    <div class="jobField">
+    <div v-for="job in jobs" :key="job.id" class="jobInfo">
+        <router-link :to="`jobs/${job.id}`">
             <h2>{{job.title}}</h2>
         </router-link>
+    </div>
     </div>
 </div>
 </template>
 
 <script>
 export default {
-    name: 'JobView',
-    components: {},
+
     data() {
         return {
             jobs: [{
@@ -38,5 +39,30 @@ export default {
 </script>
 
 <style scoped>
-
+.jobsHead{
+    margin-top: 25px;
+    font-size: 40px;
+    letter-spacing: 1px;
+}
+.jobField{
+    margin-top: 50px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+.jobInfo{
+    font-size: 20px;
+    margin-top: 10px;
+    width: 35%;
+    background-color: #d4d6d9;
+    color: #3f4040;
+    
+    
+}
+.jobInfo a{
+    text-decoration: none;
+    font-size:15px;
+    color:blue
+}
 </style>
